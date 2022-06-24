@@ -14,12 +14,33 @@ void main() {
 class MyApp extends StatelessWidget {
   @override // Decorator provided by dart. It is just there to make the code cleaner and clearer.
   Widget build(BuildContext context) {
+    var questions = [
+      'What\'s your favourite colour?',
+      'What\'s your favourite animal?'
+    ];
     return MaterialApp(
-      home: Scaffold( // Provided by flutter, we pass appBar and a Body to it.
+      home: Scaffold(
+        // Provided by flutter, we pass appBar and a Body to it.
         appBar: AppBar(
           title: Text('My First App'),
         ),
-        body: Column(children: <Widget>[],), // Column takes a list of widgets
+        body: Column(
+          children: [
+            Text('The Question!'),
+            RaisedButton(
+              child: Text('Answer 1'),
+              onPressed: null,
+            ),
+            RaisedButton(
+              child: Text('Answer 2'),
+              onPressed: null,
+            ),
+            RaisedButton(
+              child: Text('Answer 3'),
+              onPressed: null,
+            ),
+          ],
+        ), // Column() takes a list of widgets. If we want it in the same row, we can use Row()
       ),
     );
   }
