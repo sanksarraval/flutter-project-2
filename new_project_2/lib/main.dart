@@ -34,16 +34,17 @@ class MyApp extends StatelessWidget {
             Text('The Question!'),
             RaisedButton(
               child: Text('Answer 1'),
-              onPressed: answerQuestion, //It takes a function. We remove the paranthesis to the function because we want to pass a pointer to the funtion
+              onPressed: answerQuestion, //onPresses: It takes a function. 
+                                         //We remove the paranthesis to the function because we want to pass a pointer to the funtion
                                          // not the function itself.
             ),
             RaisedButton(
               child: Text('Answer 2'),
-              onPressed: answerQuestion,
+              onPressed: () => print('Answer 2 chosen'),
             ),
             RaisedButton(
               child: Text('Answer 3'),
-              onPressed: answerQuestion,
+              onPressed:() => print('Answer 3 chosen'),
             ),
           ],
         ), // Column() takes a list of widgets. If we want it in the same row, we can use Row()
