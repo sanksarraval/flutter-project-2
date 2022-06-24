@@ -12,6 +12,11 @@ void main() {
 
 // Responsible for returning a new widget to draw on the screen.
 class MyApp extends StatelessWidget {
+  void answerQuestion(){
+    print('Answer chosen!');
+  }
+
+
   @override // Decorator provided by dart. It is just there to make the code cleaner and clearer.
   Widget build(BuildContext context) {
     var questions = [
@@ -29,15 +34,16 @@ class MyApp extends StatelessWidget {
             Text('The Question!'),
             RaisedButton(
               child: Text('Answer 1'),
-              onPressed: null,
+              onPressed: answerQuestion, //It takes a function. We remove the paranthesis to the function because we want to pass a pointer to the funtion
+                                         // not the function itself.
             ),
             RaisedButton(
               child: Text('Answer 2'),
-              onPressed: null,
+              onPressed: answerQuestion,
             ),
             RaisedButton(
               child: Text('Answer 3'),
-              onPressed: null,
+              onPressed: answerQuestion,
             ),
           ],
         ), // Column() takes a list of widgets. If we want it in the same row, we can use Row()
