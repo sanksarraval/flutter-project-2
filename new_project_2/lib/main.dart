@@ -1,4 +1,6 @@
 // Imports the package required to run it with the fluttrer app.
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,12 +13,25 @@ void main() {
 //void main() => runApp(MyApp())
 
 // Responsible for returning a new widget to draw on the screen.
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget { // Can't have state.
 
+@override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+    //throw UnimplementedError();
+  }
+
+}
+class MyAppState extends State<MyApp> { // State is a class.
   var questionIndex = 0;
 
   void answerQuestion(){
-    questionIndex = questionIndex + 1;
+    setState(() {  // Is a function or method. Which is provided by the state class, it takes a function and runs it.
+      questionIndex = questionIndex + 1;
+    });
+    // questionIndex = questionIndex + 1;
+    // Changed the state of the widget. After we select answer, the questionIndex is incremented. And the question is changed.
     print(questionIndex);
   }
 
