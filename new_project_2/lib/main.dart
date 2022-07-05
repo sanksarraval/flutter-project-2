@@ -28,6 +28,7 @@ class MyAppState extends State<MyApp> { // State is a class.
 
   void answerQuestion(){
     setState(() {  // Is a function or method. Which is provided by the state class, it takes a function and runs it.
+    // It forces flutter to re-render the widget.
     // Without set state, the widget does change its property but it will not be reflected on the screen.
       questionIndex = questionIndex + 1;
     });
