@@ -1,7 +1,8 @@
 // Imports the package required to run it with the fluttrer app.
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+
+import './question.dart'; // Importing the question.dart file.
 
 void main() {
   // Run app is a function which does all the heavu lifting, it takes a widget and draws it onto the screen.
@@ -24,17 +25,17 @@ class MyApp extends StatefulWidget { // Can't have state.
 
 }
 class _MyAppState extends State<MyApp> { // State is a class.
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
-  void answerQuestion(){
+  void _answerQuestion(){
     setState(() {  // Is a function or method. Which is provided by the state class, it takes a function and runs it.
     // It forces flutter to re-render the widget.
     // Without set state, the widget does change its property but it will not be reflected on the screen.
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
     // questionIndex = questionIndex + 1;
     // Changed the state of the widget. After we select answer, the questionIndex is incremented. And the question is changed.
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override // Decorator provided by dart. It is just there to make the code cleaner and clearer.
@@ -51,10 +52,11 @@ class _MyAppState extends State<MyApp> { // State is a class.
         ),
         body: Column(
           children: [
-            Text(questions[questionIndex]),
+            Question(questions[_questionIndex] // Created our own question class.
+            ),
             RaisedButton(
               child: Text('Answer 1'),
-              onPressed: answerQuestion, //onPresses: It takes a function. 
+              onPressed: _answerQuestion, //onPresses: It takes a function. 
                                          //We remove the paranthesis to the function because we want to pass a pointer to the funtion
                                          // not the function itself.
             ),
