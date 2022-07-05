@@ -18,12 +18,12 @@ class MyApp extends StatefulWidget { // Can't have state.
 @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
     //throw UnimplementedError();
   }
 
 }
-class MyAppState extends State<MyApp> { // State is a class.
+class _MyAppState extends State<MyApp> { // State is a class.
   var questionIndex = 0;
 
   void answerQuestion(){
