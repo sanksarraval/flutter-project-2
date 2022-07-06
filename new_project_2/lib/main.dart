@@ -55,11 +55,11 @@ class _MyAppState extends State<MyApp> {
       },
       {
         'questionText': 'What\'s your favorite animal?',
-        'answers': ['Rabbit', 'Snake', 'Elephant','Lion']
+        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion']
       },
       {
         'questionText': 'What\'s your favorite instructor?',
-        'answers': ['Max', 'Max', 'Max','Max']
+        'answers': ['Max', 'Max', 'Max', 'Max']
       },
     ];
     return MaterialApp(
@@ -70,17 +70,17 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Question( //All the questions, I'm accessing the question with index 0, 1, 2 and so on and then here for the chosen question map, 
-                      // I access the value with the key, questionText. So that means I access this value, this value or this value and 
-                      // it's this string which then gets forwarded to the question,
-                questions[_questionIndex]['questionText'] // Created our own question class.
+            Question(
+                //All the questions, I'm accessing the question with index 0, 1, 2 and so on and then here for the chosen question map,
+                // I access the value with the key, questionText. So that means I access this value, this value or this value and
+                // it's this string which then gets forwarded to the question,
+                questions[_questionIndex]
+                    ['questionText'] // Accessing the question text using map.
                 ),
-            Answer(
-                _answerQuestion), // Created our own answer class. We are using the _answerQuestion function. Without ().
-            Answer(
-                _answerQuestion), // The function(address) we're around is also known as a callback.
-            Answer(
-                _answerQuestion), // Because it is receiving a widget calls it in the future.
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) { // This is an anonymous function. answer is every key in the list for the selected question
+              return Answer(_answerQuestion, answer); // Creating a new answer widget, and forwarding the answer text to it.
+            }).toList()
           ],
         ), // Column() takes a list of widgets. If we want it in the same row, we can use Row()
       ),
