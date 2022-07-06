@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import './question.dart'; // Importing the question.dart file.
+import './answer.dart'; // Importing the answer.dart file.
 
 void main() {
   // Run app is a function which does all the heavu lifting, it takes a widget and draws it onto the screen.
@@ -29,8 +30,8 @@ class _MyAppState extends State<MyApp> { // State is a class.
 
   void _answerQuestion(){
     setState(() {  // Is a function or method. Which is provided by the state class, it takes a function and runs it.
-    // It forces flutter to re-render the widget.
-    // Without set state, the widget does change its property but it will not be reflected on the screen.
+                   // It forces flutter to re-render the widget.
+                   // Without set state, the widget does change its property but it will not be reflected on the screen.
       _questionIndex = _questionIndex + 1;
     });
     // questionIndex = questionIndex + 1;
@@ -54,20 +55,9 @@ class _MyAppState extends State<MyApp> { // State is a class.
           children: [
             Question(questions[_questionIndex] // Created our own question class.
             ),
-            RaisedButton(
-              child: Text('Answer 1'),
-              onPressed: _answerQuestion, //onPresses: It takes a function. 
-                                         //We remove the paranthesis to the function because we want to pass a pointer to the funtion
-                                         // not the function itself.
-            ),
-            RaisedButton(
-              child: Text('Answer 2'),
-              onPressed: () => print('Answer 2 chosen'), // Using anonymous functions
-            ),
-            RaisedButton(
-              child: Text('Answer 3'),
-              onPressed:() => print('Answer 3 chosen'),
-            ),
+            Answer(_answerQuestion), // Created our own answer class. We are using the _answerQuestion function. Without ().
+            Answer(_answerQuestion), // The function(address) we're around is also known as a callback. 
+            Answer(_answerQuestion), // Because it is receiving a widget calls it in the future.
           ],
         ), // Column() takes a list of widgets. If we want it in the same row, we can use Row()
       ),
