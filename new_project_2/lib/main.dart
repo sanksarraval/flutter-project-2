@@ -70,8 +70,10 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Question(
-                questions[_questionIndex] // Created our own question class.
+            Question( //All the questions, I'm accessing the question with index 0, 1, 2 and so on and then here for the chosen question map, 
+                      // I access the value with the key, questionText. So that means I access this value, this value or this value and 
+                      // it's this string which then gets forwarded to the question,
+                questions[_questionIndex]['questionText'] // Created our own question class.
                 ),
             Answer(
                 _answerQuestion), // Created our own answer class. We are using the _answerQuestion function. Without ().
